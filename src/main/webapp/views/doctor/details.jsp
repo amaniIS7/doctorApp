@@ -9,6 +9,9 @@ Date of Birth: ${doctor.dateofBirth} <br><br>
 
 
 
+
+
+
 <table>
 	<c:forEach items="${doctor. getAppointment()}" var="appointment">
 		<tr>
