@@ -7,7 +7,9 @@
 <th> patient Name </th>
 <th> reason For Appointment </th>
 <th> Action </th>
-
+	<% if(session.getAttribute("user") != null) { %>
+		<th>Actions</th>
+		<% } %>
 </tr>
 <c:forEach items="${appointments}" var="appointment">
 <tr>
@@ -15,9 +17,10 @@
 <td>${appointment.patientName}</td>
 <td>${appointment.reasonForAppointment}</td>
 <td>
-		
-		 <a href="${appName}appointment/delete?id=${appointment.id}">Delete</a> 
-		</td>
+		<% if(session.getAttribute("user") != null) { %>
+<% if(session.getAttribute("userRole").equals("admin")) { %>	
+				| <a href="${appName}appointment/delete?id=${appointment.id}">Delete</a></td>
+<% } %>	<% } %>		</td>
 	</tr>
 	</c:forEach>
 </table>

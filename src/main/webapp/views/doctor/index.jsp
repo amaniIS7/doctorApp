@@ -10,7 +10,9 @@
 		<th>Date of Birth</th>
 		
 		<th>specialty</th>
-		
+			<% if(session.getAttribute("user") != null) { %>
+		<th>Actions</th>
+		<% } %>
 	</tr>
 
 	<c:forEach items="${doctors}" var="doctor">
@@ -20,7 +22,7 @@
 			<td>${doctor.gender}</td>
 			<td>${doctor.dateofBirth}</td>
              <td>${doctor.specialty}</td>
-		<td><a href="${appName}doctor/delete?id=${doctor.id}">Delete</a></td>
-		</tr>
+       
+					</tr>
 	</c:forEach>
 </table>
